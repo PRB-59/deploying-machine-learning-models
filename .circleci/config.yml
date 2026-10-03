@@ -36,6 +36,11 @@ jobs:
     steps:
       - checkout:
           path: ~/project
+      - run:
+          name: Install Python 3.9 via pyenv
+          command: |
+            pyenv install -s 3.9.16
+            pyenv local 3.9.16
       - *prepare_tox
       - run:
           name: Runnning app tests
