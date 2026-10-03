@@ -37,10 +37,9 @@ jobs:
       - checkout:
           path: ~/project
       - run:
-          name: Install Python 3.9 via pyenv
+          name: List available pyenv versions
           command: |
-            pyenv install -s 3.9.18
-            pyenv local 3.9.18
+            pyenv install --list | grep " 3.9"
       - *prepare_tox
       - run:
           name: Runnning app tests
